@@ -33,3 +33,12 @@ const videoSchema = new Schema({
 
 }, { timestamps: true })
 
+videoSchema.index({ title: 'text', description: 'text' })
+videoSchema.index({ channel: 1 })
+videoSchema.index({ length: 1 })
+videoSchema.index({ privacySettings: 1 })
+videoSchema.index({ uploadDate: 1 })
+
+const Video = mongoose.model("Video", videoSchema)
+
+module.exports = Video
