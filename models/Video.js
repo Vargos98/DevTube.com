@@ -40,5 +40,5 @@ videoSchema.index({ privacySettings: 1 })
 videoSchema.index({ uploadDate: 1 })
 
 const Video = mongoose.model("Video", videoSchema)
-
+// took help from chatgpt for better schema definition.
 module.exports = Video
