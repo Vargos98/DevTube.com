@@ -56,12 +56,23 @@ app.use(passport.session())
 app.use(checkDBConnection)
 
 // Middleware to attach user data to res.locals for views
-
+app.use(async (req, res, next) => {
+  res.locals.isCreateChannel = false
+  if (req.user) {
+    res.locals.channel = req.channel = req.user
+  } else {
+    req.channel = res.locals.channel = null
+  }
+  next()
+})
 
 // Use application routes
-
+app.use("/", checkDBConnection, routes)
 
 // 404 error handler for unknown routes
+app.use((req, res) => {
+  res.status(404).render('404')
+})
 
 // Set the port for the server
 
