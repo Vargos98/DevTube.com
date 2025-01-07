@@ -53,18 +53,10 @@ app.use(passport.initialize())
 // Enable persistent login sessions
 app.use(passport.session())
 // Use custom middleware to check database connection
-app.use(checkDBConnection)
+
 
 // Middleware to attach user data to res.locals for views
-app.use(async (req, res, next) => {
-  res.locals.isCreateChannel = false
-  if (req.user) {
-    res.locals.channel = req.channel = req.user
-  } else {
-    req.channel = res.locals.channel = null
-  }
-  next()
-})
+
 
 // Use application routes
 
