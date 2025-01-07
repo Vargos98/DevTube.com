@@ -51,9 +51,9 @@ app.use(session({ secret: 'secret', resave: false, saveUninitialized: false }))
 // Initialize Passport for authentication
 app.use(passport.initialize())
 // Enable persistent login sessions
-
+app.use(passport.session())
 // Use custom middleware to check database connection
-
+app.use(checkDBConnection)
 
 // Middleware to attach user data to res.locals for views
 
