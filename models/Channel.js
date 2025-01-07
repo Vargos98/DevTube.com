@@ -18,11 +18,3 @@ const ChannelSchema = new Schema({
 })
 
 // Adding partial indexes
-ChannelSchema.index({ uid: 1 }, { unique: true, partialFilterExpression: { uid: { $exists: true, $ne: null } } })
-ChannelSchema.index({ handle: 1 }, { unique: true, partialFilterExpression: { handle: { $exists: true, $ne: null } } })
-ChannelSchema.index({ collectionId: 1 }, { unique: true, partialFilterExpression: { collectionId: { $exists: true, $ne: null } } })
-ChannelSchema.index({ name: 'text', description: 'text' })
-
-const Channel = mongoose.model("Channel", ChannelSchema)
-
-module.exports = Channel
