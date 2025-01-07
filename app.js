@@ -67,16 +67,10 @@ app.use(async (req, res, next) => {
 })
 
 // Use application routes
-app.use("/", checkDBConnection, routes)
+
 
 // 404 error handler for unknown routes
-app.use((req, res) => {
-  res.status(404).render('404')
-})
 
 // Set the port for the server
-const port = 3000
+
 // Start the server and listen on the specified port
-server.listen(port, () => {
-  console.info(`Server started at http://localhost:${port}`)
-})
