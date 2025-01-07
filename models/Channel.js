@@ -15,7 +15,7 @@ const ChannelSchema = new Schema({
   subscriptions: [{ type: Schema.Types.ObjectId, ref: "Subscription" }],
   collectionId: { type: String, sparse: true },
   videos: [{ type: Schema.Types.ObjectId, ref: "Video" }]
-})
+}, {timestamps:true})
 
 // Adding partial indexes
 ChannelSchema.index({ uid: 1 }, { unique: true, partialFilterExpression: { uid: { $exists: true, $ne: null } } })
